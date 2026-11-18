@@ -77,9 +77,17 @@ function calculate(type, form) {
     case "password": {
       const len = Math.max(8, Math.min(128, Math.floor(a || 16)));
       const chars = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789!@#$%&*";
-      const bytes = new Uint8Array(len);
-      crypto.getRandomValues(bytes);
-      return Array.from(bytes, x => chars[x % chars.length]).join("");
+      const limit = 256 - (256 % chars.length);
+      let password = "";
+      while (password.length < len) {
+        const bytes = new Uint8Array(len * 2);
+        crypto.getRandomValues(bytes);
+        for (const byte of bytes) {
+          if (byte < limit) password += chars[byte % chars.length];
+          if (password.length === len) break;
+        }
+      }
+      return password;
     }
     case "invoice":
     case "receipt":
@@ -199,6 +207,58 @@ document.querySelectorAll(".tool-form").forEach(form => {
 
     if (form.dataset.type === "qr") {
       await generateQr(form, result);
+      return;
+    }
+
+    if (form.dataset.type === "password") {
+      const password = calculate("password", form);
+      result.replaceChildren();
+
+      const output = document.createElement("input");
+      output.type = "text";
+      output.readOnly = true;
+      output.autocomplete = "off";
+      output.value = password;
+      output.setAttribute("aria-label", "Password yang dihasilkan");
+      output.style.cssText = "width:100%;box-sizing:border-box;margin:8px 0;padding:12px;font-family:monospace;";
+      result.appendChild(output);
+
+      const copy = document.createElement("button");
+      copy.type = "button";
+      copy.textContent = "Salin Password";
+      copy.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(password);
+          copy.textContent = "Tersalin!";
+        } catch {
+          output.focus();
+          output.select();
+          try {
+            if (document.execCommand("copy")) copy.textContent = "Tersalin!";
+            else copy.textContent = "Gagal menyalin";
+          } catch {
+            copy.textContent = "Gagal menyalin";
+          }
+        }
+      });
+      result.appendChild(copy);
+
+      const download = document.createElement("button");
+      download.type = "button";
+      download.textContent = "Unduh TXT";
+      download.style.marginLeft = "8px";
+      download.addEventListener("click", () => {
+        const blob = new Blob([password + "\n"], {type: "text/plain;charset=utf-8"});
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "password-guna-id.txt";
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+      });
+      result.appendChild(download);
       return;
     }
 
