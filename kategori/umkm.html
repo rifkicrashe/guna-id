@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>UMKM Gratis | GUNA.ID</title>
+<meta name="description" content="Kumpulan alat umkm gratis di GUNA.ID.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://guna-id.pages.dev/kategori/umkm.html">
+<meta property="og:title" content="UMKM Gratis | GUNA.ID">
+<meta property="og:description" content="Kumpulan alat umkm gratis di GUNA.ID.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+<header class="header">
+<a class="brand" href="/">GUNA<span>.ID</span></a>
+<a href="/pages/tentang.html">Tentang</a>
+</header>
+<main>
+<nav><a href="/">Beranda</a> / UMKM</nav>
+<h1>UMKM</h1>
+<p>Pilih alat yang dibutuhkan. Buka panel alat, isi data, lalu proses.</p>
+<label for="group-search">Cari alat dalam kategori</label>
+<input id="group-search" class="search" placeholder="Cari alat..." autocomplete="off">
+<div id="group-tools">
+<details class="tool-panel" id="invoice">
+<summary>Generator Invoice</summary>
+<div class="tool-panel-body">
+<p>Membuat invoice sederhana yang dapat dicetak.</p>
+<form class="tool-form" data-type="invoice">
+<label for="invoice-text">Nama pelanggan / keterangan<textarea id="invoice-text" name="text" rows="4"></textarea></label><label for="invoice-a">Nominal<input id="invoice-a" name="a" type="number" step="any" inputmode="decimal" required></label>
+<button type="submit">Proses</button>
+</form>
+<pre class="result" aria-live="polite">Hasil akan muncul di sini.</pre>
+
+</div>
+</details>
+<details class="tool-panel" id="kuitansi">
+<summary>Generator Kuitansi</summary>
+<div class="tool-panel-body">
+<p>Membuat kuitansi pembayaran.</p>
+<form class="tool-form" data-type="receipt">
+<label for="kuitansi-text">Nama pembayar / keterangan<textarea id="kuitansi-text" name="text" rows="4"></textarea></label><label for="kuitansi-a">Nominal<input id="kuitansi-a" name="a" type="number" step="any" inputmode="decimal" required></label>
+<button type="submit">Proses</button>
+</form>
+<pre class="result" aria-live="polite">Hasil akan muncul di sini.</pre>
+
+</div>
+</details>
+<details class="tool-panel" id="harga-jual">
+<summary>Kalkulator Harga Jual</summary>
+<div class="tool-panel-body">
+<p>Menghitung harga jual berdasarkan modal dan margin.</p>
+<form class="tool-form" data-type="selling">
+<label for="harga-jual-a">Modal<input id="harga-jual-a" name="a" type="number" step="any" inputmode="decimal" required></label><label for="harga-jual-b">Target margin (%)<input id="harga-jual-b" name="b" type="number" step="any" inputmode="decimal" required></label>
+<button type="submit">Proses</button>
+</form>
+<pre class="result" aria-live="polite">Hasil akan muncul di sini.</pre>
+
+</div>
+</details>
+<details class="tool-panel" id="modal">
+<summary>Kalkulator Modal</summary>
+<div class="tool-panel-body">
+<p>Menghitung total kebutuhan modal.</p>
+<form class="tool-form" data-type="capital">
+<label for="modal-a">Biaya bahan<input id="modal-a" name="a" type="number" step="any" inputmode="decimal" required></label><label for="modal-b">Biaya operasional<input id="modal-b" name="b" type="number" step="any" inputmode="decimal" required></label><label for="modal-c">Biaya lainnya<input id="modal-c" name="c" type="number" step="any" inputmode="decimal" required></label>
+<button type="submit">Proses</button>
+</form>
+<pre class="result" aria-live="polite">Hasil akan muncul di sini.</pre>
+
+</div>
+</details>
+<details class="tool-panel" id="keuntungan-harian">
+<summary>Keuntungan Harian</summary>
+<div class="tool-panel-body">
+<p>Menghitung keuntungan harian usaha.</p>
+<form class="tool-form" data-type="daily">
+<label for="keuntungan-harian-a">Pendapatan hari ini<input id="keuntungan-harian-a" name="a" type="number" step="any" inputmode="decimal" required></label><label for="keuntungan-harian-b">Pengeluaran hari ini<input id="keuntungan-harian-b" name="b" type="number" step="any" inputmode="decimal" required></label>
+<button type="submit">Proses</button>
+</form>
+<pre class="result" aria-live="polite">Hasil akan muncul di sini.</pre>
+
+</div>
+</details>
+<details class="tool-panel" id="stok">
+<summary>Kalkulator Stok</summary>
+<div class="tool-panel-body">
+<p>Menghitung stok barang sederhana.</p>
+<form class="tool-form" data-type="stock">
+<label for="stok-a">Stok awal<input id="stok-a" name="a" type="number" step="any" inputmode="decimal" required></label><label for="stok-b">Barang masuk<input id="stok-b" name="b" type="number" step="any" inputmode="decimal" required></label><label for="stok-c">Barang keluar<input id="stok-c" name="c" type="number" step="any" inputmode="decimal" required></label>
+<button type="submit">Proses</button>
+</form>
+<pre class="result" aria-live="polite">Hasil akan muncul di sini.</pre>
+
+</div>
+</details></div>
+<p id="group-empty" hidden>Alat tidak ditemukan.</p>
+<script>
+(() => {
+ const input = document.getElementById("group-search");
+ const panels = [...document.querySelectorAll(".tool-panel")];
+ const empty = document.getElementById("group-empty");
+ function filter() {
+   const q = input.value.trim().toLocaleLowerCase("id");
+   let count = 0;
+   panels.forEach(panel => {
+     const found = panel.textContent.toLocaleLowerCase("id").includes(q);
+     panel.hidden = !found;
+     if (found) count++;
+   });
+   empty.hidden = count > 0;
+ }
+ input.addEventListener("input", filter);
+ const target = location.hash.slice(1);
+ if (target) {
+   const panel = document.getElementById(target);
+   if (panel) {
+     panel.open = true;
+     panel.scrollIntoView({ behavior: "auto", block: "start" });
+   }
+ }
+})();
+</script>
+<script src="/assets/js/app.js" defer></script>
+</main>
+<footer>
+<p>GUNA.ID — Alat digital gratis untuk Indonesia.</p>
+<a href="/pages/privacy.html">Privasi</a> ·
+<a href="/pages/terms.html">Ketentuan</a> ·
+<a href="/pages/disclaimer.html">Disclaimer</a> ·
+<a href="/pages/kontak.html">Kontak</a>
+</footer>
+</body>
+</html>

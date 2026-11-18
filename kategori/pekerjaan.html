@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pekerjaan Gratis | GUNA.ID</title>
+<meta name="description" content="Kumpulan alat pekerjaan gratis di GUNA.ID.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://guna-id.pages.dev/kategori/pekerjaan.html">
+<meta property="og:title" content="Pekerjaan Gratis | GUNA.ID">
+<meta property="og:description" content="Kumpulan alat pekerjaan gratis di GUNA.ID.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+<header class="header">
+<a class="brand" href="/">GUNA<span>.ID</span></a>
+<a href="/pages/tentang.html">Tentang</a>
+</header>
+<main>
+<nav><a href="/">Beranda</a> / Pekerjaan</nav>
+<h1>Pekerjaan</h1>
+<p>Pilih alat yang dibutuhkan. Buka panel alat, isi data, lalu proses.</p>
+<label for="group-search">Cari alat dalam kategori</label>
+<input id="group-search" class="search" placeholder="Cari alat..." autocomplete="off">
+<div id="group-tools">
+<details class="tool-panel" id="gaji">
+<summary>Kalkulator Gaji</summary>
+<div class="tool-panel-body">
+<p>Menghitung estimasi gaji bersih sederhana.</p>
+<form class="tool-form" data-type="salary">
+<label for="gaji-a">Gaji kotor<input id="gaji-a" name="a" type="number" step="any" inputmode="decimal" required></label><label for="gaji-b">Potongan<input id="gaji-b" name="b" type="number" step="any" inputmode="decimal" required></label>
+<button type="submit">Proses</button>
+</form>
+<pre class="result" aria-live="polite">Hasil akan muncul di sini.</pre>
+
+</div>
+</details>
+<details class="tool-panel" id="lembur">
+<summary>Kalkulator Lembur</summary>
+<div class="tool-panel-body">
+<p>Menghitung estimasi upah lembur.</p>
+<form class="tool-form" data-type="overtime">
+<label for="lembur-a">Upah per jam<input id="lembur-a" name="a" type="number" step="any" inputmode="decimal" required></label><label for="lembur-b">Jam lembur<input id="lembur-b" name="b" type="number" step="any" inputmode="decimal" required></label>
+<button type="submit">Proses</button>
+</form>
+<pre class="result" aria-live="polite">Hasil akan muncul di sini.</pre>
+
+</div>
+</details>
+<details class="tool-panel" id="thr">
+<summary>Kalkulator THR</summary>
+<div class="tool-panel-body">
+<p>Menghitung estimasi THR berdasarkan masa kerja.</p>
+<form class="tool-form" data-type="thr">
+<label for="thr-a">Gaji bulanan<input id="thr-a" name="a" type="number" step="any" inputmode="decimal" required></label><label for="thr-b">Masa kerja (bulan)<input id="thr-b" name="b" type="number" step="any" inputmode="decimal" required></label>
+<button type="submit">Proses</button>
+</form>
+<pre class="result" aria-live="polite">Hasil akan muncul di sini.</pre>
+
+</div>
+</details>
+<details class="tool-panel" id="jam-kerja">
+<summary>Kalkulator Jam Kerja</summary>
+<div class="tool-panel-body">
+<p>Menghitung durasi kerja.</p>
+<form class="tool-form" data-type="worktime">
+<label for="jam-kerja-a">Jam mulai (0-24)<input id="jam-kerja-a" name="a" type="number" step="any" inputmode="decimal" required></label><label for="jam-kerja-b">Jam selesai (0-24)<input id="jam-kerja-b" name="b" type="number" step="any" inputmode="decimal" required></label>
+<button type="submit">Proses</button>
+</form>
+<pre class="result" aria-live="polite">Hasil akan muncul di sini.</pre>
+
+</div>
+</details>
+<details class="tool-panel" id="usia-produktif">
+<summary>Usia Produktif</summary>
+<div class="tool-panel-body">
+<p>Menghitung usia dan rentang usia produktif.</p>
+<form class="tool-form" data-type="age">
+<label for="usia-produktif-a">Tanggal lahir<input id="usia-produktif-a" name="a" type="date"  required></label>
+<button type="submit">Proses</button>
+</form>
+<pre class="result" aria-live="polite">Hasil akan muncul di sini.</pre>
+
+</div>
+</details></div>
+<p id="group-empty" hidden>Alat tidak ditemukan.</p>
+<script>
+(() => {
+ const input = document.getElementById("group-search");
+ const panels = [...document.querySelectorAll(".tool-panel")];
+ const empty = document.getElementById("group-empty");
+ function filter() {
+   const q = input.value.trim().toLocaleLowerCase("id");
+   let count = 0;
+   panels.forEach(panel => {
+     const found = panel.textContent.toLocaleLowerCase("id").includes(q);
+     panel.hidden = !found;
+     if (found) count++;
+   });
+   empty.hidden = count > 0;
+ }
+ input.addEventListener("input", filter);
+ const target = location.hash.slice(1);
+ if (target) {
+   const panel = document.getElementById(target);
+   if (panel) {
+     panel.open = true;
+     panel.scrollIntoView({ behavior: "auto", block: "start" });
+   }
+ }
+})();
+</script>
+<script src="/assets/js/app.js" defer></script>
+</main>
+<footer>
+<p>GUNA.ID — Alat digital gratis untuk Indonesia.</p>
+<a href="/pages/privacy.html">Privasi</a> ·
+<a href="/pages/terms.html">Ketentuan</a> ·
+<a href="/pages/disclaimer.html">Disclaimer</a> ·
+<a href="/pages/kontak.html">Kontak</a>
+</footer>
+</body>
+</html>

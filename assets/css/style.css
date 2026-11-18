@@ -1,0 +1,60 @@
+
+:root{font-family:system-ui,-apple-system,sans-serif;color:#202938;background:#f5f7fa}
+*{box-sizing:border-box}
+body{margin:0;line-height:1.6}
+.header{background:#fff;padding:16px 5%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #e5e7eb}
+.brand{font-size:24px;font-weight:900;color:#172b4d;text-decoration:none}
+.brand span{color:#087fce}
+main{max-width:1000px;margin:30px auto;padding:0 18px;min-height:65vh}
+.hero{background:#102e50;color:white;padding:35px 25px;border-radius:18px}
+.hero h1{font-size:32px;margin:0 0 10px}
+.search{width:100%;padding:14px;border:1px solid #ddd;border-radius:10px;margin:20px 0;font-size:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.tool-card{display:block;background:white;padding:18px;border-radius:13px;text-decoration:none;color:#202938;border:1px solid #e5e7eb}
+.tool-card:hover{border-color:#087fce}
+.tool-card h3{margin:0 0 6px}
+.muted{color:#687386;font-size:14px}
+.form-card{background:white;padding:22px;border-radius:14px;margin-top:20px}
+label{display:block;margin-top:14px;font-weight:600}
+input,textarea,select{width:100%;padding:12px;border:1px solid #ccd2dc;border-radius:8px;margin-top:6px;font:inherit}
+button,.button{display:inline-block;background:#087fce;color:white;padding:12px 18px;border:0;border-radius:8px;margin-top:18px;cursor:pointer;text-decoration:none}
+.result{background:#e8f4ff;padding:16px;border-radius:10px;margin-top:18px;white-space:pre-wrap;overflow-wrap:anywhere}
+footer{text-align:center;background:#fff;padding:25px;margin-top:40px;color:#687386}
+footer a{color:#087fce}
+
+/* Pengelompokan alat dan pencarian */
+.category-card {
+  border: 1px solid #d9dee7;
+  border-radius: 12px;
+  padding: 14px;
+  margin: 14px 0;
+}
+.category-card h2 { margin-top: 0; }
+.tool-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.tool-link {
+  display: inline-block;
+  border: 1px solid #d9dee7;
+  border-radius: 8px;
+  padding: 8px 10px;
+  text-decoration: none;
+}
+.tool-panel {
+  border: 1px solid #d9dee7;
+  border-radius: 10px;
+  margin: 12px 0;
+  overflow: hidden;
+}
+.tool-panel > summary {
+  cursor: pointer;
+  font-weight: 600;
+  padding: 14px;
+}
+.tool-panel-body { padding: 14px; }
+.tool-panel[hidden], .tool-link[hidden], .category-card[hidden] { display: none; }
+.tool-form { display: grid; gap: 12px; }
+.tool-form label { display: grid; gap: 6px; }
+.result { white-space: pre-wrap; overflow-wrap: anywhere; }

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://guna-id.pages.dev/sitemap.xml

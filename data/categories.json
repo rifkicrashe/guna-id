@@ -1,0 +1,22 @@
+[
+  {
+    "slug": "keuangan",
+    "name": "Keuangan"
+  },
+  {
+    "slug": "umkm",
+    "name": "UMKM"
+  },
+  {
+    "slug": "pekerjaan",
+    "name": "Pekerjaan"
+  },
+  {
+    "slug": "produktivitas",
+    "name": "Produktivitas"
+  },
+  {
+    "slug": "harian",
+    "name": "Kebutuhan Harian"
+  }
+]

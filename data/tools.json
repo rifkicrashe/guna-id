@@ -1,0 +1,234 @@
+[
+  {
+    "slug": "diskon",
+    "name": "Kalkulator Diskon",
+    "category": "keuangan",
+    "description": "Menghitung harga setelah diskon.",
+    "type": "discount",
+    "active": true
+  },
+  {
+    "slug": "cicilan",
+    "name": "Kalkulator Cicilan",
+    "category": "keuangan",
+    "description": "Menghitung estimasi cicilan bulanan.",
+    "type": "installment",
+    "active": true
+  },
+  {
+    "slug": "bunga",
+    "name": "Kalkulator Bunga",
+    "category": "keuangan",
+    "description": "Menghitung bunga pinjaman atau tabungan.",
+    "type": "interest",
+    "active": true
+  },
+  {
+    "slug": "keuntungan",
+    "name": "Kalkulator Keuntungan",
+    "category": "keuangan",
+    "description": "Menghitung keuntungan usaha.",
+    "type": "profit",
+    "active": true
+  },
+  {
+    "slug": "margin",
+    "name": "Kalkulator Margin",
+    "category": "keuangan",
+    "description": "Menghitung margin keuntungan.",
+    "type": "margin",
+    "active": true
+  },
+  {
+    "slug": "bep",
+    "name": "Kalkulator BEP",
+    "category": "keuangan",
+    "description": "Menghitung titik impas usaha.",
+    "type": "bep",
+    "active": true
+  },
+  {
+    "slug": "persentase",
+    "name": "Kalkulator Persentase",
+    "category": "keuangan",
+    "description": "Menghitung persentase angka.",
+    "type": "percentage",
+    "active": true
+  },
+  {
+    "slug": "invoice",
+    "name": "Generator Invoice",
+    "category": "umkm",
+    "description": "Membuat invoice sederhana yang dapat dicetak.",
+    "type": "invoice",
+    "active": true
+  },
+  {
+    "slug": "kuitansi",
+    "name": "Generator Kuitansi",
+    "category": "umkm",
+    "description": "Membuat kuitansi pembayaran.",
+    "type": "receipt",
+    "active": true
+  },
+  {
+    "slug": "harga-jual",
+    "name": "Kalkulator Harga Jual",
+    "category": "umkm",
+    "description": "Menghitung harga jual berdasarkan modal dan margin.",
+    "type": "selling",
+    "active": true
+  },
+  {
+    "slug": "modal",
+    "name": "Kalkulator Modal",
+    "category": "umkm",
+    "description": "Menghitung total kebutuhan modal.",
+    "type": "capital",
+    "active": true
+  },
+  {
+    "slug": "keuntungan-harian",
+    "name": "Keuntungan Harian",
+    "category": "umkm",
+    "description": "Menghitung keuntungan harian usaha.",
+    "type": "daily",
+    "active": true
+  },
+  {
+    "slug": "stok",
+    "name": "Kalkulator Stok",
+    "category": "umkm",
+    "description": "Menghitung stok barang sederhana.",
+    "type": "stock",
+    "active": true
+  },
+  {
+    "slug": "gaji",
+    "name": "Kalkulator Gaji",
+    "category": "pekerjaan",
+    "description": "Menghitung estimasi gaji bersih sederhana.",
+    "type": "salary",
+    "active": true
+  },
+  {
+    "slug": "lembur",
+    "name": "Kalkulator Lembur",
+    "category": "pekerjaan",
+    "description": "Menghitung estimasi upah lembur.",
+    "type": "overtime",
+    "active": true
+  },
+  {
+    "slug": "thr",
+    "name": "Kalkulator THR",
+    "category": "pekerjaan",
+    "description": "Menghitung estimasi THR berdasarkan masa kerja.",
+    "type": "thr",
+    "active": true
+  },
+  {
+    "slug": "jam-kerja",
+    "name": "Kalkulator Jam Kerja",
+    "category": "pekerjaan",
+    "description": "Menghitung durasi kerja.",
+    "type": "worktime",
+    "active": true
+  },
+  {
+    "slug": "usia-produktif",
+    "name": "Usia Produktif",
+    "category": "pekerjaan",
+    "description": "Menghitung usia dan rentang usia produktif.",
+    "type": "age",
+    "active": true
+  },
+  {
+    "slug": "word-counter",
+    "name": "Word Counter",
+    "category": "produktivitas",
+    "description": "Menghitung jumlah kata dalam teks.",
+    "type": "words",
+    "active": true
+  },
+  {
+    "slug": "character-counter",
+    "name": "Character Counter",
+    "category": "produktivitas",
+    "description": "Menghitung jumlah karakter.",
+    "type": "characters",
+    "active": true
+  },
+  {
+    "slug": "qr-generator",
+    "name": "QR Generator",
+    "category": "produktivitas",
+    "description": "Membuat QR dari teks atau tautan.",
+    "type": "qr",
+    "active": true
+  },
+  {
+    "slug": "password-generator",
+    "name": "Password Generator",
+    "category": "produktivitas",
+    "description": "Membuat password secara lokal.",
+    "type": "password",
+    "active": true
+  },
+  {
+    "slug": "text-case",
+    "name": "Text Case Converter",
+    "category": "produktivitas",
+    "description": "Mengubah format huruf teks.",
+    "type": "textcase",
+    "active": true
+  },
+  {
+    "slug": "json-formatter",
+    "name": "JSON Formatter",
+    "category": "produktivitas",
+    "description": "Memformat dan memvalidasi JSON.",
+    "type": "json",
+    "active": true
+  },
+  {
+    "slug": "bbm",
+    "name": "Kalkulator BBM",
+    "category": "harian",
+    "description": "Menghitung kebutuhan biaya BBM.",
+    "type": "fuel",
+    "active": true
+  },
+  {
+    "slug": "perjalanan",
+    "name": "Biaya Perjalanan",
+    "category": "harian",
+    "description": "Menghitung estimasi biaya perjalanan.",
+    "type": "travel",
+    "active": true
+  },
+  {
+    "slug": "listrik",
+    "name": "Kalkulator Listrik",
+    "category": "harian",
+    "description": "Menghitung estimasi biaya listrik.",
+    "type": "electricity",
+    "active": true
+  },
+  {
+    "slug": "konsumsi-bbm",
+    "name": "Konsumsi Bahan Bakar",
+    "category": "harian",
+    "description": "Menghitung konsumsi BBM kendaraan.",
+    "type": "consumption",
+    "active": true
+  },
+  {
+    "slug": "umur",
+    "name": "Kalkulator Umur",
+    "category": "harian",
+    "description": "Menghitung umur berdasarkan tanggal lahir.",
+    "type": "age",
+    "active": true
+  }
+]

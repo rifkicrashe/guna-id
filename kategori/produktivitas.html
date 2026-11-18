@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Produktivitas Gratis | GUNA.ID</title>
+<meta name="description" content="Kumpulan alat produktivitas gratis di GUNA.ID.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://guna-id.pages.dev/kategori/produktivitas.html">
+<meta property="og:title" content="Produktivitas Gratis | GUNA.ID">
+<meta property="og:description" content="Kumpulan alat produktivitas gratis di GUNA.ID.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+<header class="header">
+<a class="brand" href="/">GUNA<span>.ID</span></a>
+<a href="/pages/tentang.html">Tentang</a>
+</header>
+<main>
+<nav><a href="/">Beranda</a> / Produktivitas</nav>
+<h1>Produktivitas</h1>
+<p>Pilih alat yang dibutuhkan. Buka panel alat, isi data, lalu proses.</p>
+<label for="group-search">Cari alat dalam kategori</label>
+<input id="group-search" class="search" placeholder="Cari alat..." autocomplete="off">
+<div id="group-tools">
+<details class="tool-panel" id="word-counter">
+<summary>Word Counter</summary>
+<div class="tool-panel-body">
+<p>Menghitung jumlah kata dalam teks.</p>
+<form class="tool-form" data-type="words">
+<label for="word-counter-text">Teks<textarea id="word-counter-text" name="text" rows="4"></textarea></label>
+<button type="submit">Proses</button>
+</form>
+<pre class="result" aria-live="polite">Hasil akan muncul di sini.</pre>
+
+</div>
+</details>
+<details class="tool-panel" id="character-counter">
+<summary>Character Counter</summary>
+<div class="tool-panel-body">
+<p>Menghitung jumlah karakter.</p>
+<form class="tool-form" data-type="characters">
+<label for="character-counter-text">Teks<textarea id="character-counter-text" name="text" rows="4"></textarea></label>
+<button type="submit">Proses</button>
+</form>
+<pre class="result" aria-live="polite">Hasil akan muncul di sini.</pre>
+
+</div>
+</details>
+<details class="tool-panel" id="qr-generator">
+<summary>QR Generator</summary>
+<div class="tool-panel-body">
+<p>Membuat QR dari teks atau tautan.</p>
+<form class="tool-form" data-type="qr">
+<label for="qr-generator-text">Teks atau URL<textarea id="qr-generator-text" name="text" rows="4"></textarea></label>
+<button type="submit">Proses</button>
+</form>
+<pre class="result" aria-live="polite">Hasil akan muncul di sini.</pre>
+
+</div>
+</details>
+<details class="tool-panel" id="password-generator">
+<summary>Password Generator</summary>
+<div class="tool-panel-body">
+<p>Membuat password secara lokal.</p>
+<form class="tool-form" data-type="password">
+<label for="password-generator-a">Panjang password<input id="password-generator-a" name="a" type="number" step="any" inputmode="decimal" required></label>
+<button type="submit">Proses</button>
+</form>
+<pre class="result" aria-live="polite">Hasil akan muncul di sini.</pre>
+
+</div>
+</details>
+<details class="tool-panel" id="text-case">
+<summary>Text Case Converter</summary>
+<div class="tool-panel-body">
+<p>Mengubah format huruf teks.</p>
+<form class="tool-form" data-type="textcase">
+<label for="text-case-text">Teks<textarea id="text-case-text" name="text" rows="4"></textarea></label><label for="text-case-mode">Format<select id="text-case-mode" name="mode"><option value="upper">HURUF BESAR</option><option value="lower">huruf kecil</option><option value="title">Huruf Judul</option></select></label>
+<button type="submit">Proses</button>
+</form>
+<pre class="result" aria-live="polite">Hasil akan muncul di sini.</pre>
+
+</div>
+</details>
+<details class="tool-panel" id="json-formatter">
+<summary>JSON Formatter</summary>
+<div class="tool-panel-body">
+<p>Memformat dan memvalidasi JSON.</p>
+<form class="tool-form" data-type="json">
+<label for="json-formatter-text">JSON<textarea id="json-formatter-text" name="text" rows="4"></textarea></label>
+<button type="submit">Proses</button>
+</form>
+<pre class="result" aria-live="polite">Hasil akan muncul di sini.</pre>
+
+</div>
+</details></div>
+<p id="group-empty" hidden>Alat tidak ditemukan.</p>
+<script>
+(() => {
+ const input = document.getElementById("group-search");
+ const panels = [...document.querySelectorAll(".tool-panel")];
+ const empty = document.getElementById("group-empty");
+ function filter() {
+   const q = input.value.trim().toLocaleLowerCase("id");
+   let count = 0;
+   panels.forEach(panel => {
+     const found = panel.textContent.toLocaleLowerCase("id").includes(q);
+     panel.hidden = !found;
+     if (found) count++;
+   });
+   empty.hidden = count > 0;
+ }
+ input.addEventListener("input", filter);
+ const target = location.hash.slice(1);
+ if (target) {
+   const panel = document.getElementById(target);
+   if (panel) {
+     panel.open = true;
+     panel.scrollIntoView({ behavior: "auto", block: "start" });
+   }
+ }
+})();
+</script>
+<script src="/assets/js/app.js" defer></script>
+</main>
+<footer>
+<p>GUNA.ID — Alat digital gratis untuk Indonesia.</p>
+<a href="/pages/privacy.html">Privasi</a> ·
+<a href="/pages/terms.html">Ketentuan</a> ·
+<a href="/pages/disclaimer.html">Disclaimer</a> ·
+<a href="/pages/kontak.html">Kontak</a>
+</footer>
+</body>
+</html>
