@@ -149,15 +149,34 @@ async function generateQr(form, result) {
     download.style.marginTop = "12px";
 
     download.addEventListener("click", () => {
-      const canvas = mount.querySelector("canvas");
-      const img = mount.querySelector("img");
-      const url = canvas?.toDataURL("image/png") || img?.src;
+      const source = mount.querySelector("canvas") || mount.querySelector("img");
 
-      if (!url) {
+      if (!source) {
         alert("QR belum siap. Coba lagi.");
         return;
       }
 
+      const width = source instanceof HTMLCanvasElement
+        ? source.width : source.naturalWidth;
+      const height = source instanceof HTMLCanvasElement
+        ? source.height : source.naturalHeight;
+
+      if (!width || !height) {
+        alert("QR belum siap. Coba lagi.");
+        return;
+      }
+
+      const padding = 32;
+      const output = document.createElement("canvas");
+      output.width = width + padding * 2;
+      output.height = height + padding * 2;
+
+      const ctx = output.getContext("2d");
+      ctx.fillStyle = "#ffffff";
+      ctx.fillRect(0, 0, output.width, output.height);
+      ctx.drawImage(source, padding, padding, width, height);
+
+      const url = output.toDataURL("image/png");
       const link = document.createElement("a");
       link.href = url;
       link.download = "guna-id-qr.png";
